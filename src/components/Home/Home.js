@@ -15,6 +15,7 @@ const Home = () => {
     const [uitem,setUitem] = useState({});
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
+    const [loading,setLoading] = useState(true);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleClose1 = () => setShow1(false);
@@ -56,6 +57,7 @@ const Home = () => {
         axios.get('https://shielded-scrubland-08663.herokuapp.com/todo')
         .then(res=>{
             setItem(res.data);
+            setLoading(false);
         });
     },[item]);
     //handleItem
@@ -173,19 +175,30 @@ const Home = () => {
                                 </div>
                                 <div className="card-body">
                                    {
-                                       displayItem
-                                   }
-                                    <ReactPaginate
-                                        previousLabel={"Previous"}
-                                        nextLabel={"Next"}
-                                        pageCount={pageCount}
-                                        onPageChange={changePage}
-                                        containerClassName={"paginationBttns"}
-                                        previousLinkClassName={"previousBttn"}
-                                        nextLinkClassName={"nextBttn"}
-                                        disabledClassName={"paginationDisabled"}
-                                        activeClassName={"paginationActive"}
-                                    />
+                                       loading? 
+                                       <div className="text-center">
+                                            <button className="btn btn-primary" type="button" disabled>
+                                                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                Loading...
+                                            </button>
+                                        </div>
+                                        :
+                                        item.length > 0 ? displayItem : <p style={{textAlign:'center',fontWeight:'700'}}>Start Your Listing</p>
+                                    }
+                                    {
+                                        item.length > 0 && 
+                                        <ReactPaginate
+                                            previousLabel={"Previous"}
+                                            nextLabel={"Next"}
+                                            pageCount={pageCount}
+                                            onPageChange={changePage}
+                                            containerClassName={"paginationBttns"}
+                                            previousLinkClassName={"previousBttn"}
+                                            nextLinkClassName={"nextBttn"}
+                                            disabledClassName={"paginationDisabled"}
+                                            activeClassName={"paginationActive"}
+                                        />
+                                    }
                                 </div>
                             </div>
                         </div>
