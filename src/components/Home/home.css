@@ -1,0 +1,80 @@
+.banner{
+    background-color: blueviolet;
+    min-height: 100vh;
+}
+.head-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rebeccapurple;
+    text-transform: capitalize;
+}
+.add-btn {
+    background: none;
+    border: none;
+    padding-top: 8px;
+    color: rebeccapurple;
+}
+.btn-action{
+    background: none;
+    border: none;
+    padding-top: 8px;
+}
+.edit{
+    color: #376da5;
+}
+.delete{
+    color: red;
+}
+.pending{
+    color: #ddd;
+}
+.complete{
+    color: #05f50d;
+}
+.item {
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    color: rebeccapurple;
+}
+.del{
+ text-decoration: line-through;
+ color: green;
+}
+.overley {
+    background: #663399d4;
+}
+/* pagination */
+.paginationBttns {
+    min-width: 80%;
+    min-height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 14px auto;
+    padding: 0;
+    align-items: center;
+    background: #ddd;
+    border-radius: 4px;
+}
+  
+.paginationBttns a {
+    text-decoration: none;
+    padding: 3px 10px;
+    font-weight: 700;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+.paginationBttns a:hover {
+background-color: rebeccapurple;
+color: #fff!important;
+}
+
+.paginationActive a {
+background-color: rebeccapurple;
+color: #fff!important;
+}
+  
+.paginationDisabled a {
+   cursor: no-drop;
+}
